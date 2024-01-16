@@ -1,17 +1,17 @@
-var inputNum = prompt("Nhập vào 1 số ?")
-var perfectNum = (inputNum);
-if (isNaN(number) || number <= 0) {
-    console.log("Nhập sai rồi.");
-} else {
-    var sumOfDivisors = 0;
-    for (var i = 1; i < nperfectNum; i++) {
-        if (perfectNum % i === 0) {
-            sumOfDivisors += i;
-        }
+let a = parseInt(prompt("Nhập số thứ nhất: "));
+let b = parseInt(prompt("Nhập số thứ hai: "));
+let c = parseInt(prompt("Nhập số thứ ba: "));
+let d = parseInt(prompt("Nhập số thứ tư: "));
+let findGCD = function(x, y) {
+    while (y !== 0) {
+        let temp = y;
+        y = x % y;
+        x = temp;
     }
-    if (sumOfDivisors === perfectNum) {
-        console.log(perfectNum + " là số hoàn hảo.");
-    } else {
-        console.log(perfectNum + " không phải là số hoàn hảo.");
-    }
+    return x;
 }
+let GCDAB = findGCD(a, b);
+let GCDABC = findGCD(GCDAB, c);
+let GCDABCD = findGCD(GCDABC, d);
+let LCM = (a * b * c * d) / GCDABCD;
+console.log("Bội chung nhỏ nhất của", a, b, c, d, "là:", LCM);

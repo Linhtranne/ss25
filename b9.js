@@ -1,20 +1,26 @@
-var userInput = prompt("Nhập vào một số nguyên dương:");
-var limit = parseInt(userInput);
-if (isNaN(limit) || limit <= 0) {
-    console.log("Nhập sai rồi.");
-} else {
-    console.log("Dãy Fibonacci có tổng giá trị nhỏ hơn " + limit + " là:");
-    console.log(0);
-    console.log(1);
-    var a = 0;
-    var b = 1;
-    var sum = a + b;
-    while (sum < limit) {
-        console.log(sum);
-        a = b;
-        b = sum;
-        sum = a + b;
+let a = parseInt(prompt("Nhập a:"));
+let b = parseInt(prompt("Nhập b:"));
+if (!isNaN(a) && !isNaN(b) && a > 0 && b > 0) {
+    for (let i = a; i <= b; i++) {
+        let digits = [];
+        let temp = i;
+        let isDistinct = true;
+        while (temp > 0) {
+            let digit = temp % 10;
+            if (digits.includes(digit)) {
+                isDistinct = false;
+                break;
+            }
+            digits.push(digit);
+            temp = Math.floor(temp / 10);
+        }
+
+        if (isDistinct) {
+            console.log(i);
+        }
     }
+} else {
+    console.log("Vui lòng nhập vào 2 số nguyên dương.");
 }
 
 

@@ -1,20 +1,18 @@
-var inputNum = prompt("Nhập vào 1 số nguyên dương bất kì?");
-var num =(inputNum);
-if ( !isNaN(num)){
-    console.log("Nhập sai rồi");
-}else{
-    console.log("Các số nguyên tố nhỏ hơn " + num + " là:");
-    for (var i = 2; i < num; i++) {
-        var input = true;
-
-        for (var j = 2; j < i; j++) {
-            if (i % j === 0) {
-                input = false;
-                break;
-            }
-        }
-        if (input) {
-            console.log(i);
+let length = parseInt(prompt("Nhập chiều dài của hình chữ nhật:"));
+let width = parseInt(prompt("Nhập chiều rộng của hình chữ nhật:"));
+if (!isNaN(length) && !isNaN(width) && length > 0 && width > 0) {
+    let minSquareCount = 0;
+    while (length > 0 && width > 0) {
+        if (length > width) {
+            minSquareCount += Math.floor(length / width);
+            length %= width;
+        } else {
+            minSquareCount += Math.floor(width / length);
+            width %= length;
         }
     }
+
+    console.log("Số hình vuông tối thiểu là: " + minSquareCount);
+} else {
+    console.log("Vui lòng nhập vào chiều dài và chiều rộng là số nguyên dương.");
 }
